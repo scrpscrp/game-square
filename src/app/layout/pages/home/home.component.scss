@@ -1,0 +1,24 @@
+.game-container {
+  text-align: center;
+  padding: 5rem;
+}
+
+.score-board {
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(207, 207, 207);
+}
+
+input {
+  margin: 1rem;
+}

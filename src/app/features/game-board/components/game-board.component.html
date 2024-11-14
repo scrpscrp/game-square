@@ -1,0 +1,13 @@
+<div class="grid">
+  @for(square of squares ; track $index ){
+  <div
+    class="square"
+    [ngClass]="{
+      highlight: square.highlighted,
+      correct: square.correct,
+      incorrect: square.incorrect
+    }"
+    (click)="onSquareClick($index)"
+  ></div>
+  }
+</div>

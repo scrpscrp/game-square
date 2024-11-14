@@ -1,9 +1,9 @@
-<!-- <div class="game-container">
+<div class="game-container">
   <h1>Міні-гра</h1>
   <div class="score-board">
-    <span>Гравець: {{ playerScore }}</span>
+    <span>Гравець: {{ playerScore() }}</span>
     |
-    <span>Комп'ютер: {{ computerScore }}</span>
+    <span>Комп'ютер: {{ computerScore() }}</span>
   </div>
 
   <div>
@@ -14,9 +14,11 @@
   <button (click)="startGame()" [disabled]="isGameStarted">Почати</button>
 
   <app-game-board
+    [initialValue]="initialValue"
     [timeInMs]="timeInMs"
-    (gameOver)="onGameOver($event)"
     [isGameStarted]="isGameStarted"
+    (gameOver)="onGameOver($event)"
+    (playerScored)="playerScored($event)"
+    (computerScored)="computerScored($event)"
   ></app-game-board>
-</div> -->
-<router-outlet></router-outlet>
+</div>

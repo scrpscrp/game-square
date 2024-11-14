@@ -1,0 +1,18 @@
+<header
+  [ngStyle]="{
+    'background-color': result.text === 'Комп\'ютер виграв!' ? 'red' : 'green'
+  }"
+>
+  <h1>{{ result.text }}</h1>
+</header>
+<div class="scores">
+  <h2>Player: {{ result.playerScore }}</h2>
+  <hr />
+  <h2>Computer: {{ result.computerScore }}</h2>
+</div>
+
+<footer>
+  <div class="action-buttons">
+    <button (click)="closeDialog()">close</button>
+  </div>
+</footer>
