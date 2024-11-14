@@ -1,6 +1,6 @@
 <header
   [ngStyle]="{
-    'background-color': result.text === 'Комп\'ютер виграв!' ? 'red' : 'green'
+    'background-color': result.text === 'Computer won!' ? 'red' : 'green'
   }"
 >
   <h1>{{ result.text }}</h1>
@@ -13,6 +13,6 @@
 
 <footer>
   <div class="action-buttons">
-    <button (click)="closeDialog()">close</button>
+    <button (click)="closeDialog()">Close</button>
   </div>
 </footer>

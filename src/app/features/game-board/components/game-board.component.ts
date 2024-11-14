@@ -110,11 +110,11 @@ export class GameBoardComponent {
       computerScore: this.computerScore
     };
     if (this.playerScore > this.computerScore) {
-      this.gameOver.emit({ ...result, text: 'Гравець виграв!' });
+      this.gameOver.emit({ ...result, text: 'Player won!' });
     } else if (this.playerScore < this.computerScore) {
-      this.gameOver.emit({ ...result, text: "Комп'ютер виграв!" });
+      this.gameOver.emit({ ...result, text: 'Computer won!' });
     } else {
-      this.gameOver.emit({ ...result, text: 'Нічия!' });
+      this.gameOver.emit({ ...result, text: 'Draw!' });
     }
 
     this._reset();

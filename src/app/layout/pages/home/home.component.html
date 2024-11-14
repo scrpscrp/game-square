@@ -1,9 +1,9 @@
 <div class="game-container">
-  <h1>Міні-гра</h1>
+  <h1>Mini-game</h1>
   <div class="score-board">
-    <span>Гравець: {{ playerScore() }}</span>
+    <span>Player: {{ playerScore() }}</span>
     |
-    <span>Комп'ютер: {{ computerScore() }}</span>
+    <span>Computer: {{ computerScore() }}</span>
   </div>
 
   <div>
@@ -11,7 +11,13 @@
     <input type="number" id="timeInput" [(ngModel)]="timeInMs" />
   </div>
 
-  <button (click)="startGame()" [disabled]="isGameStarted">Почати</button>
+  <button
+    (click)="startGame()"
+    [disabled]="isGameStarted"
+    (keydown.enter)="startGame()"
+  >
+    Start
+  </button>
 
   <app-game-board
     [initialValue]="initialValue"

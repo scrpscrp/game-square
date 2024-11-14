@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, HostListener, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameBoardComponent } from '../../../features/game-board/components/game-board.component';
 import { DialogService } from '../../../../shared/dialog/dialog.service';
@@ -14,9 +14,16 @@ import { Result } from '../../../features/game-board/types/result.interface';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  @HostListener('document:keydown', ['$event'])
+  public onKeydown(event: KeyboardEvent): void {
+    if (event.key === 'Enter' && !this.isGameStarted) {
+      this.startGame();
+    }
+  }
+
   public playerScore = signal(0);
   public computerScore = signal(0);
-  public timeInMs: number = 0;
+  public timeInMs = 0;
   public isGameStarted = false;
   public readonly initialValue = 0;
   private readonly _dialog = inject(DialogService);
@@ -24,6 +31,9 @@ export class HomeComponent {
   public startGame(): void {
     if (this.timeInMs < 1) {
       alert('Please setup the timer');
+      return;
+    } else if (this.timeInMs < 1000) {
+      alert('Number should be greater than 1000');
       return;
     }
     this.isGameStarted = true;
