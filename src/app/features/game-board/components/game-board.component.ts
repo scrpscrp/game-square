@@ -109,13 +109,11 @@ export class GameBoardComponent {
       playerScore: this.playerScore,
       computerScore: this.computerScore
     };
-    if (this.playerScore > this.computerScore) {
-      this.gameOver.emit({ ...result, text: 'Player won!' });
-    } else if (this.playerScore < this.computerScore) {
-      this.gameOver.emit({ ...result, text: 'Computer won!' });
-    } else {
-      this.gameOver.emit({ ...result, text: 'Draw!' });
-    }
+
+    const gameResult =
+      this.playerScore > this.computerScore ? 'Player won!' : 'Computer won!';
+
+    this.gameOver.emit({ ...result, text: gameResult });
 
     this._reset();
   }

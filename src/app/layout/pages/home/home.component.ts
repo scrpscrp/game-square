@@ -37,8 +37,7 @@ export class HomeComponent {
       return;
     }
     this.isGameStarted = true;
-    this.playerScore.update(() => 0);
-    this.computerScore.update(() => 0);
+    this._reset();
   }
 
   public onGameOver(result: Result): void {
@@ -57,5 +56,10 @@ export class HomeComponent {
 
   public computerScored(score: number): void {
     this.computerScore.update(() => score);
+  }
+
+  private _reset(): void {
+    this.playerScore.update(() => this.initialValue);
+    this.computerScore.update(() => this.initialValue);
   }
 }
